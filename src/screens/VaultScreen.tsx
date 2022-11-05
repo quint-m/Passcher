@@ -1,5 +1,6 @@
 import { Box, Center, Pressable, Text, View } from "native-base";
 import { SafeAreaView } from "react-native";
+import AddPasswordItem from "../components/AddItemButton";
 import DismissibleView from "../components/DismissibleView";
 import PasswordList from "../components/PasswordList";
 import SearchBar from "../components/SearchBar";
@@ -11,6 +12,8 @@ const VaultScreen = () => {
         <SearchBar />
         <PasswordList></PasswordList>
       </Center>
+
+      <AddPasswordItem />
     </View>
   );
 };

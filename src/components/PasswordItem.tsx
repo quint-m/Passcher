@@ -20,7 +20,9 @@ const PasswordItem = (pw: Password) => {
               <Image source={usePasswordIcon(pw.category)} style={{ width: 42, height: 42, marginRight: 10 }} />
               <VStack>
                 <Text fontWeight="bold">{pw.title}</Text>
-                <Text>{pw.username}</Text>
+                <Text fontWeight="semibold" color="gray.500">
+                  {pw.username}
+                </Text>
               </VStack>
             </Center>
           </HStack>
