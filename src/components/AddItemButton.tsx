@@ -1,11 +1,11 @@
 import { View, Text, Box, Icon, Pressable, Center } from "native-base";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
-import { NativeStackProps } from "../nav/Navs";
+import { BottomTabsProps, NativeStackProps } from "../nav/Navs";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
 
 const AddPasswordItem = () => {
-  const nav = useNavigation<NativeStackProps>();
+  const nav = useNavigation<NavigationProp<NativeStackProps>>();
 
   return (
     <Box position="absolute" right={5} bottom={5}>

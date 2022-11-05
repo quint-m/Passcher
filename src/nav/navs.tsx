@@ -79,7 +79,6 @@ const NavigationHandler = () => {
             <SafeAreaView style={{ backgroundColor: "white", paddingBottom: 10 }} edges={["top", "right", "left"]}>
               <Box>
                 <HStack alignItems="center">
-                  {/** If the route isn't equal to Home, we add a back button. If there route is equal to Home we add an empty box, for spacing. (Same size as icon) */}
                   {route.name !== "Home" ? (
                     <Icon as={MaterialIcons} name="keyboard-arrow-left" size={8} color="gray.900" />
                   ) : (
@@ -95,7 +94,7 @@ const NavigationHandler = () => {
         },
       })}
     >
-      <NativeStack.Screen name="Home" component={Home} options={{ title: "Vault" }} />
+      <NativeStack.Screen name="Home" component={Home} />
       <NativeStack.Screen name="Create" component={CreatePasswordScreen} />
     </NativeStack.Navigator>
   );
