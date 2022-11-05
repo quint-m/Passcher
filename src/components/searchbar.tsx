@@ -2,10 +2,10 @@ import { Box, Icon, Input, Pressable, Text } from "native-base";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import Entypo from "@expo/vector-icons/Entypo";
 import { useAtom } from "jotai";
-import { queryAtom } from "../atoms/query-atom";
+import { queryAtom } from "../atoms/QueryAtom";
 import { useRef } from "react";
 
-const Searchbar = () => {
+const SearchBar = () => {
   const [query, setQuery] = useAtom(queryAtom);
   const inputElement = useRef(null);
 
@@ -31,9 +31,8 @@ const Searchbar = () => {
         }
         onChangeText={(text) => setQuery(text)}
       />
-      <Text>{query}</Text>
     </Box>
   );
 };
 
-export default Searchbar;
+export default SearchBar;

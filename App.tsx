@@ -1,13 +1,16 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { NativeBaseProvider } from "native-base";
-import NavigationHandler from "./src/nav/navs";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import NavigationHandler from "./src/nav/Navs";
 
 export default function App() {
   return (
     <NativeBaseProvider>
-      <NavigationContainer>
-        <NavigationHandler />
-      </NavigationContainer>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <NavigationHandler />
+        </NavigationContainer>
+      </SafeAreaProvider>
     </NativeBaseProvider>
   );
 }
