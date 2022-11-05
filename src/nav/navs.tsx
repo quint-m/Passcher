@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Box, HStack, Icon, Text, usePropsResolutionTest, View } from "native-base";
+import { Box, HStack, Icon, Pressable, Text, usePropsResolutionTest, View } from "native-base";
 import VaultScreen from "../screens/VaultScreen";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import SettingsScreen from "../screens/SettingsScreen";
@@ -26,6 +26,9 @@ const Home = () => {
       initialRouteName="Vault"
       screenOptions={({ route }) => ({
         headerShown: false,
+        tabBarBackground: () => {
+          return <Box bg="white" shadow={3} flex={1}></Box>;
+        },
         tabBarLabel(props) {
           return (
             <Text fontSize="xs" color={props.focused ? "amber.500" : "gray.500"}>
@@ -94,7 +97,7 @@ const NavigationHandler = () => {
         },
       })}
     >
-      <NativeStack.Screen name="Home" component={Home} />
+      <NativeStack.Screen name="Home" component={Home} options={{ title: "Vault" }} />
       <NativeStack.Screen name="Create" component={CreatePasswordScreen} />
     </NativeStack.Navigator>
   );

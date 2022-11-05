@@ -7,8 +7,8 @@ import SearchBar from "../components/SearchBar";
 
 const VaultScreen = () => {
   return (
-    <View bgColor="white" flex={1}>
-      <Center>
+    <View bg="white" flex={1}>
+      <Center flex={1}>
         <SearchBar />
         <PasswordList></PasswordList>
       </Center>
