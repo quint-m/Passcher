@@ -20,10 +20,6 @@ export type BottomTabsProps = {
 const NativeStack = createNativeStackNavigator<NativeStackProps>();
 const BottomTab = createBottomTabNavigator<BottomTabsProps>();
 
-/**
- * Blablablablala
- * @returns
- */
 const Home = () => {
   return (
     <BottomTab.Navigator
