@@ -5,6 +5,10 @@ import DismissibleView from "../components/DismissibleView";
 import PasswordList from "../components/PasswordList";
 import SearchBar from "../components/SearchBar";
 
+/**
+ * Blabla documentatie
+ * @returns
+ */
 const VaultScreen = () => {
   return (
     <View bg="white" flex={1}>
