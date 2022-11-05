@@ -1,13 +1,15 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Box, Icon, Text, usePropsResolutionTest, View } from "native-base";
+import { Box, HStack, Icon, Text, usePropsResolutionTest, View } from "native-base";
 import VaultScreen from "../screens/VaultScreen";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import SettingsScreen from "../screens/SettingsScreen";
 import { SafeAreaView } from "react-native-safe-area-context";
+import CreatePasswordScreen from "../screens/CreateScreen";
 
 export type NativeStackProps = {
   Home: undefined;
+  Create: undefined;
 };
 
 export type BottomTabsProps = {
@@ -20,33 +22,13 @@ const BottomTab = createBottomTabNavigator<BottomTabsProps>();
 
 const Home = () => {
   return (
-    <NativeStack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
-      <NativeStack.Screen name="Home" component={VaultScreen} />
-    </NativeStack.Navigator>
-  );
-};
-
-const NavigationHandler = () => {
-  return (
     <BottomTab.Navigator
       initialRouteName="Vault"
       screenOptions={({ route }) => ({
-        headerShadowVisible: false,
-        header(props) {
-          return (
-            <SafeAreaView style={{ backgroundColor: "white", paddingBottom: 10 }} edges={["top", "right", "left"]}>
-              <Box width="80%" margin="auto">
-                <Text fontSize="2xl" fontWeight="bold">
-                  {route.name}
-                </Text>
-              </Box>
-            </SafeAreaView>
-          );
-        },
-        /** Set TabBar label color to either amber or gray, depending on focus state */
+        headerShown: false,
         tabBarLabel(props) {
           return (
-            <Text fontSize="10px" color={props.focused ? "amber.500" : "gray.500"}>
+            <Text fontSize="xs" color={props.focused ? "amber.500" : "gray.500"}>
               {route.name}
             </Text>
           );
@@ -55,7 +37,7 @@ const NavigationHandler = () => {
     >
       <BottomTab.Screen
         name="Vault"
-        component={Home}
+        component={VaultScreen}
         options={({ route }) => ({
           tabBarIcon(props) {
             /** Set TabBar icon either to an open or a closed lock for the home screen, depending on the focus state */
@@ -83,6 +65,39 @@ const NavigationHandler = () => {
         })}
       />
     </BottomTab.Navigator>
+  );
+};
+
+const NavigationHandler = () => {
+  return (
+    <NativeStack.Navigator
+      initialRouteName="Home"
+      screenOptions={({ route }) => ({
+        headerShadowVisible: false,
+        header(props) {
+          return (
+            <SafeAreaView style={{ backgroundColor: "white", paddingBottom: 10 }} edges={["top", "right", "left"]}>
+              <Box>
+                <HStack alignItems="center">
+                  {/** If the route isn't equal to Home, we add a back button. If there route is equal to Home we add an empty box, for spacing. (Same size as icon) */}
+                  {route.name !== "Home" ? (
+                    <Icon as={MaterialIcons} name="keyboard-arrow-left" size={8} color="gray.900" />
+                  ) : (
+                    <Box size={8} />
+                  )}
+                  <Text fontSize="2xl" fontWeight="bold">
+                    {props.options.title ? props.options.title : route.name}
+                  </Text>
+                </HStack>
+              </Box>
+            </SafeAreaView>
+          );
+        },
+      })}
+    >
+      <NativeStack.Screen name="Home" component={Home} options={{ title: "Vault" }} />
+      <NativeStack.Screen name="Create" component={CreatePasswordScreen} />
+    </NativeStack.Navigator>
   );
 };
 
