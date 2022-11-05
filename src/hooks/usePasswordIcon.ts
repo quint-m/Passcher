@@ -118,6 +118,122 @@ const Word_imageResource = require("Word-(Microsoft).png");
 const Youtube_imageResource = require("Youtube.png");
 const Zoom_imageResource = require("Zoom.png");
 
+export const PasswordIcons: Password["category"][] = [
+  "AirBnB",
+  "Amazon Prime",
+  "Amazon Shopping",
+  "Amazon",
+  "ArtStation",
+  "ARZone",
+  "Authenticator (Google)",
+  "Authenticator (Microsoft)",
+  "Authy",
+  "Battle",
+  "Booking",
+  "Calendar (Google)",
+  "Chrome (Google)",
+  "CityMapper",
+  "Cuenta DNI",
+  "Currents (Google)",
+  "DeviantArt",
+  "Discord",
+  "Docs (Google)",
+  "Drive (Google)",
+  "Duolingo",
+  "Edge (Microsoft)",
+  "Evernote",
+  "Excel (Microsoft)",
+  "Facebook",
+  "Files (Google)",
+  "Firefox",
+  "Forms (Google)",
+  "Galaxy Store",
+  "Glovo",
+  "Gmail",
+  "Google Launcher",
+  "Google",
+  "Hangouts (Google)",
+  "Idealista",
+  "Instagram",
+  "Itchio",
+  "Keep (Google)",
+  "Ko-Fi",
+  "Link to Windows (Microsoft)",
+  "LinkedIn",
+  "London Guide",
+  "London Offline Map",
+  "London Tube Map",
+  "Maps (Google)",
+  "Mercadolibre",
+  "Mercadopago",
+  "Messenger (Facebook)",
+  "Mi Argentina",
+  "Microsoft Launcher",
+  "Miro",
+  "Moj",
+  "Netflix",
+  "Notion",
+  "Nova Launcher",
+  "Office",
+  "OneDrive (Microsoft)",
+  "OneNote (Microsoft)",
+  "Opera",
+  "Outlook (Microsoft)",
+  "Patreon",
+  "PayPal",
+  "PedidosYa",
+  "Photos (Google)",
+  "Pinterest",
+  "Playstore (Google)",
+  "Podcasts (Google)",
+  "PowerPoint (Microsoft)",
+  "Presentations (Google)",
+  "Publisher (Microsoft)",
+  "Reddit",
+  "Safari",
+  "Samsung Free",
+  "Santander",
+  "Sheets (Google)",
+  "Skype",
+  "Slack",
+  "Snapchat",
+  "SocioPlus",
+  "SoundCloud",
+  "Spotify",
+  "Steam",
+  "Talkback (Google)",
+  "Tarjeta Transporte Madrid",
+  "Telegram",
+  "Text to Speech (Google)",
+  "Tfl Go",
+  "Tfl Oyster",
+  "TickTick",
+  "TikTok",
+  "Tinder",
+  "To do (Microsoft)",
+  "Todoist",
+  "Toggl Blue Icon",
+  "Toggl Hire",
+  "Toggl Plan",
+  "Toggl Track",
+  "Toggl",
+  "Translate (Google)",
+  "Trello",
+  "Tumblr",
+  "TV (Google)",
+  "Twitch",
+  "Twitter",
+  "Uber Eats",
+  "Uber",
+  "Vivaldi",
+  "Whatsapp",
+  "Wikipedia",
+  "WinRAR",
+  "Word (Microsoft)",
+  "Youtube",
+  "Zoom",
+];
+
 export const usePasswordIcon = (name: Password["category"]) => {
   switch (name) {
     case "AirBnB":
@@ -184,8 +300,8 @@ export const usePasswordIcon = (name: Password["category"]) => {
       return Gmail_imageResource;
     case "Google":
       return Google_imageResource;
-    case "Google":
-      return Google_imageResource;
+    case "Google Launcher":
+      return GoogleLauncher_imageResource;
     case "Hangouts (Google)":
       return Hangouts_imageResource;
     case "Idealista":
@@ -314,14 +430,14 @@ export const usePasswordIcon = (name: Password["category"]) => {
       return Todoist_imageResource;
     case "Toggl":
       return Toggl_imageResource;
-    case "Toggl":
-      return Toggl_imageResource;
-    case "Toggl":
-      return Toggl_imageResource;
-    case "Toggl":
-      return Toggl_imageResource;
-    case "Toggl":
-      return Toggl_imageResource;
+    case "Toggl Blue Icon":
+      return TogglBlue_imageResource;
+    case "Toggl Hire":
+      return TogglHire_imageResource;
+    case "Toggl Plan":
+      return TogglPlan_imageResource;
+    case "Toggl Track":
+      return TogglTrack_imageResource;
     case "Translate (Google)":
       return Translate_imageResource;
     case "Trello":
@@ -338,8 +454,8 @@ export const usePasswordIcon = (name: Password["category"]) => {
       return Twitter_imageResource;
     case "Uber":
       return Uber_imageResource;
-    case "Uber":
-      return Uber_imageResource;
+    case "Uber Eats":
+      return UberEats_imageResource;
     case "Vivaldi":
       return Vivaldi_imageResource;
     case "Whatsapp":

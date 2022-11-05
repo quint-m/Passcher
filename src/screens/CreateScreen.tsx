@@ -1,11 +1,13 @@
 import { View, Text } from "native-base";
 import React from "react";
+import PasscherHeading from "../components/create/PasscherHeading";
+import DismissibleView from "../components/DismissibleView";
 
 const CreatePasswordScreen = () => {
   return (
-    <View flex={1} background="white">
-      <Text>CreatePasswordScreen</Text>
-    </View>
+    <DismissibleView flex={1} background="white" p={5}>
+      <PasscherHeading />
+    </DismissibleView>
   );
 };
 

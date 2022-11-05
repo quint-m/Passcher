@@ -118,3 +118,5 @@ export interface Password {
     | "Youtube"
     | "Zoom";
 }
+
+export type PasswordCategories = Password["category"];
