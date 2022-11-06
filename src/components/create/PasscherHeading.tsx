@@ -1,23 +1,30 @@
 import React, { useState } from "react";
 import { Password } from "../../models/PasswordModel";
-import { Box, HStack, VStack, Text, Input, Pressable, View, Center } from "native-base";
+import { Box, HStack, VStack, Text, Input, Pressable, View, Center, IBoxProps } from "native-base";
 import { Image } from "react-native";
-import ReactNativeModal from "react-native-modal";
 import PasscherIconModal from "./PasscherIconModal";
+import { nanoid } from "nanoid";
+import { usePasswordIcon } from "../../hooks/usePasswordIcon";
 
-const PasscherHeading = () => {
-  let passwordResult: Password;
+type Props = {
+  style: IBoxProps;
+  password: Password;
+  onIconSelect?: (category: Password["category"]) => void;
+  onTitleSubmit?: () => void;
+};
+
+const PasscherHeading = (props: Props) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <Box>
+    <Box {...props.style}>
       <HStack space={5} alignItems="center">
         <Pressable
           onPress={() => {
             setModalVisible(!modalVisible);
           }}
         >
-          <Image source={require("../../node_modules/Questionmark_Gray.png")} style={{ width: 64, height: 64 }} />
+          <Image source={usePasswordIcon(props.password.category)} style={{ width: 64, height: 64 }} />
         </Pressable>
 
         <VStack space={3}>
@@ -36,7 +43,14 @@ const PasscherHeading = () => {
         </VStack>
       </HStack>
 
-      <PasscherIconModal visible={modalVisible} onClose={() => setModalVisible(false)} />
+      <PasscherIconModal
+        visible={modalVisible}
+        onClose={() => setModalVisible(false)}
+        onSelect={(cat) => {
+          props.onIconSelect && props.onIconSelect(cat);
+          setModalVisible(false);
+        }}
+      />
     </Box>
   );
 };

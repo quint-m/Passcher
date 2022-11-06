@@ -3,6 +3,8 @@ export interface Password {
   title: string;
   username: string;
   password: string;
+  website?: string;
+  tags?: string[];
   category:
     | "AirBnB"
     | "Amazon Prime"
@@ -116,7 +118,8 @@ export interface Password {
     | "WinRAR"
     | "Word (Microsoft)"
     | "Youtube"
-    | "Zoom";
+    | "Zoom"
+    | "UNKNOWN";
 }
 
 export type PasswordCategories = Password["category"];

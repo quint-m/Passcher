@@ -117,6 +117,7 @@ const WinRAR_imageResource = require("WinRAR.png");
 const Word_imageResource = require("Word-(Microsoft).png");
 const Youtube_imageResource = require("Youtube.png");
 const Zoom_imageResource = require("Zoom.png");
+const UNKNOWN_imageResource = require("Questionmark_Gray.png");
 
 export const PasswordIcons: Password["category"][] = [
   "AirBnB",
@@ -232,6 +233,7 @@ export const PasswordIcons: Password["category"][] = [
   "Word (Microsoft)",
   "Youtube",
   "Zoom",
+  "UNKNOWN",
 ];
 
 export const usePasswordIcon = (name: Password["category"]) => {
@@ -470,5 +472,7 @@ export const usePasswordIcon = (name: Password["category"]) => {
       return Youtube_imageResource;
     case "Zoom":
       return Zoom_imageResource;
+    case "UNKNOWN":
+      return UNKNOWN_imageResource;
   }
 };

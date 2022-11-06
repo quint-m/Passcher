@@ -8,17 +8,25 @@ import { FlatList, Image } from "react-native";
 type Props = {
   visible: boolean;
   onClose: () => void;
+  onSelect: (category: Password["category"]) => void;
 };
 
-const RenderIcon = ({ item }: { item: Password["category"] }) => {
+const RenderIcon = ({
+  item,
+  onSelect,
+}: {
+  item: Password["category"];
+  onSelect: (category: Password["category"]) => void;
+}) => {
   return (
-    <Pressable onPress={() => alert(item)}>
+    <Pressable onPress={() => onSelect(item)}>
       <Image source={usePasswordIcon(item)} style={{ width: 64, height: 64 }} />
     </Pressable>
   );
 };
 
 const PasscherIconModal = (props: Props) => {
+  const { onSelect } = props;
   return (
     <ReactNativeModal
       isVisible={props.visible}
@@ -32,7 +40,7 @@ const PasscherIconModal = (props: Props) => {
     >
       <Box h="1/2" justifyContent="center" borderRadius={15} bg="white" alignItems="center">
         <FlatList
-          renderItem={RenderIcon}
+          renderItem={({ item }) => RenderIcon({ item, onSelect })}
           data={PasswordIcons}
           numColumns={5}
           directionalLockEnabled={true}
